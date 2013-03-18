@@ -1,6 +1,11 @@
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'wikipedia/version'
+
 Gem::Specification.new do |s|
     s.name = 'wikipedia-api'
-    s.version = '0.1.1'
+    s.version = MediaWiki::VERSION
     s.date = '2008-05-06'
     s.authors = ['Ben Hughes']
     s.email = 'ben@pixelmachine.org'
