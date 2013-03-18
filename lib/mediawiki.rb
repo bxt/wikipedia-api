@@ -162,10 +162,9 @@ class MediaWiki
       res << make_qs("revids", opts[:revids])
     end
 
-    if opts[:rvprop] 
-      opts[:rvprop] = opts[:rvprop] & RVPROPS
-      res << make_qs("rvprop", opts[:rvprop])
-    end
+    opts[:rvprop] ||= RVPROPS
+    opts[:rvprop] = opts[:rvprop] & RVPROPS
+    res << make_qs("rvprop", opts[:rvprop])
 
     res
   end
