@@ -112,7 +112,7 @@ class MediaWiki
         @title = page['title']
         @pageid = page['pageid']
         @links = page['links'].collect{|pl| pl['title']}
-        @langlinks = page['langlinks'].collect{|ll| ll['lang']}
+        @langlinks = page['langlinks'].inject({}){|h,ll| h[ll["lang"].to_sym]=ll["*"]; h}
         @images = page['images'].collect{|im| im['title']}
         @templates = page['templates'].collect{|tl| tl['title']}
         @extlinks = page['extlinks'].collect{|el| el['*']}
