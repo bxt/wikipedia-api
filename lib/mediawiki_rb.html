@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>File: mediawiki.rb [wikipedia-api gem]</title>
+
+  <link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet" />
+
+  <script src="../js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
+</head>
+
+<body class="file file-popup">
+  <div id="metadata">
+    <dl>
+      <dt class="modified-date">Last Modified</dt>
+      <dd class="modified-date">2013-03-18 16:35:46 +0100</dd>
+
+      
+      <dt class="requires">Requires</dt>
+      <dd class="requires">
+        <ul>
+        
+        </ul>
+      </dd>
+      
+
+      
+    </dl>
+  </div>
+
+  <div id="documentation">
+    
+    <div class="description">
+      <h2>Description</h2>
+      
+<p>This file contains magical incantations to interface with the <a
+href="../MediaWiki.html">MediaWiki</a> API.  This is very much a work in
+progress so don’t count on it not changing (for the better).</p>
+
+<p>The <a href="../MediaWiki.html">MediaWiki</a> class wraps all the
+functionality for general <a href="../MediaWiki.html">MediaWiki</a> usage.
+You can also require wikipedia.rb to get the  <a
+href="../files/lib/wikipedia_rb.html">Wikipedia</a>  constant that wraps up
+the basic functionality.</p>
+
+<h2>Installation</h2>
+
+<pre>sudo gem install schleyfox-wikipedia-api --source=http://gems.github.com</pre>
+
+<h2>Basic Usage</h2>
+
+<p>For example, to get a page from Wikiquote</p>
+
+<pre>require 'mediawiki'
+w = MediaWiki.new('http://en.wikiquote.org/w/api.php')
+w.find_by_title('Oscar Wilde')</pre>
+
+<p>If you want Wikipedia, you can use the built in constant</p>
+
+<pre>require 'wikipedia'
+Wikipedia.find_by_title('Oscar Wilde')</pre>
+
+<h2>Source</h2>
+
+<p>Check out the source on github <a
+href="http://github.com/schleyfox/wikipedia-api">github.com/schleyfox/wikipedia-api</a></p>
+
+    </div>
+    
+  </div>
+</body>
+</html>
+

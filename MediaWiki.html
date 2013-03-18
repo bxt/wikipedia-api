@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: MediaWiki</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/mediawiki_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/mediawiki.rb">lib/mediawiki.rb</a></li>
+          
+            <li><a href="./lib/wikipedia/version_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/wikipedia/version.rb">lib/wikipedia/version.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+      <!-- Namespace Contents -->
+      <div id="namespace-list-section" class="section">
+        <h3 class="section-header">Namespace</h3>
+        <ul class="link-list">
+          
+          <li><span class="type">CLASS</span> <a href="MediaWiki/MediaWikiBase.html">MediaWiki::MediaWikiBase</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-find">#find</a></li>
+          
+          <li><a href="#method-i-find_by_pageids">#find_by_pageids</a></li>
+          
+          <li><a href="#method-i-find_by_title">#find_by_title</a></li>
+          
+          <li><a href="#method-i-find_by_titles">#find_by_titles</a></li>
+          
+          <li><a href="#method-i-handle_options">#handle_options</a></li>
+          
+          <li><a href="#method-i-handle_opts_hash">#handle_opts_hash</a></li>
+          
+          <li><a href="#method-i-make_qs">#make_qs</a></li>
+          
+          <li><a href="#method-i-make_url">#make_url</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./MediaWiki.html">MediaWiki</a></li>
+        
+          <li><a href="./MediaWiki/MediaWikiBase.html">MediaWiki::MediaWikiBase</a></li>
+        
+          <li><a href="./MediaWiki/MediaWikiBase/Page.html">MediaWiki::MediaWikiBase::Page</a></li>
+        
+          <li><a href="./MediaWiki/MediaWikiBase/Revision.html">MediaWiki::MediaWikiBase::Revision</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">MediaWiki</h1>
+
+    <div id="description" class="description">
+      
+<p>The <a href="MediaWiki.html">MediaWiki</a> class allows one to interface
+with the <a href="MediaWiki.html">MediaWiki</a> API. Everything about it is
+incomplete and I promise that it will eat your kids and/or small furry
+woodland creatures.  These things happen.</p>
+
+<h2>Usage</h2>
+
+<p>To use, you construct a <a href="MediaWiki.html">MediaWiki</a> object for
+the site</p>
+
+<pre>require 'mediawiki'
+example_wiki = MediaWiki.new(&quot;http://example.com/w/api.php&quot;)</pre>
+
+<p>From here you can query based on title or pageid for individual pages or
+collections</p>
+
+<pre># By pageid
+page = example_wiki.find(10)
+page.title #=&gt; &quot;foo&quot;
+
+# By title
+page = example_wiki.find_by_title(&quot;foo&quot;)
+page.pageid #=&gt; 10
+
+# a collection by pageids
+result = example_wiki.find_by_pageids(10,11)
+result.pages.collect(&amp;:title) #=&gt; [&quot;foo&quot;, &quot;bar&quot;]
+
+# a collection by titles
+result = example_wiki.find_by_titles(&quot;foo&quot;, &quot;bar&quot;)
+result.pages.collect(&amp;:pageid) #=&gt; [10, 11]</pre>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+      <!-- Constants -->
+      <div id="constants-list" class="section">
+        <h3 class="section-header">Constants</h3>
+        <dl>
+        
+          <dt><a name="PROPS">PROPS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="RVPROPS">RVPROPS</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+          <dt><a name="VERSION">VERSION</a></dt>
+          
+          <dd class="description"></dd>
+          
+        
+        </dl>
+      </div>
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(url)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="find-method" class="method-detail ">
+          <a name="method-i-find"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">find</span><span
+              class="method-args">(*opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>find by pageid</p>
+            
+
+            
+            <div class="method-source-code" id="find-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(*<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">find_by_pageids</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">pages</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- find-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find-method -->
+
+      
+        <div id="find_by_pageids-method" class="method-detail ">
+          <a name="method-i-find_by_pageids"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">find_by_pageids</span><span
+              class="method-args">(*opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>find the articles identified by the Array page_ids</p>
+            
+
+            
+            <div class="method-source-code" id="find_by_pageids-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_pageids</span>(*<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">page_ids</span>, <span class="ruby-identifier">opts_qs</span> = <span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">page_ids_qs</span> = <span class="ruby-identifier">make_qs</span>(<span class="ruby-string">&quot;pageids&quot;</span>, <span class="ruby-identifier">page_ids</span>)
+  <span class="ruby-constant">MediaWikiBase</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">make_url</span>(<span class="ruby-identifier">opts_qs</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">page_ids_qs</span>)))
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- find_by_pageids-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_by_pageids-method -->
+
+      
+        <div id="find_by_title-method" class="method-detail ">
+          <a name="method-i-find_by_title"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">find_by_title</span><span
+              class="method-args">(*opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Same as <a href="MediaWiki.html#method-i-find_by_titles">find_by_titles</a>
+but returns a single page</p>
+            
+
+            
+            <div class="method-source-code" id="find_by_title-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_title</span>(*<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">find_by_titles</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">pages</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- find_by_title-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_by_title-method -->
+
+      
+        <div id="find_by_titles-method" class="method-detail ">
+          <a name="method-i-find_by_titles"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">find_by_titles</span><span
+              class="method-args">(*opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>find the articles identified by the Array titles</p>
+            
+
+            
+            <div class="method-source-code" id="find_by_titles-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_by_titles</span>(*<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">titles</span>, <span class="ruby-identifier">opts_qs</span> = <span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">titles_qs</span> = <span class="ruby-identifier">make_qs</span>(<span class="ruby-string">&quot;titles&quot;</span>, <span class="ruby-identifier">titles</span>)
+  <span class="ruby-constant">MediaWikiBase</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">make_url</span>(<span class="ruby-identifier">opts_qs</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">titles_qs</span>)))
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- find_by_titles-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- find_by_titles-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+      <div id="protected-instance-method-details" class="method-section section">
+        <h3 class="section-header">Protected Instance Methods</h3>
+
+      
+        <div id="handle_options-method" class="method-detail ">
+          <a name="method-i-handle_options"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">handle_options</span><span
+              class="method-args">(opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="handle_options-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_options</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">arr</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete_if</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>}
+  <span class="ruby-identifier">hash</span> = (<span class="ruby-identifier">opts</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">arr</span>).<span class="ruby-identifier">first</span>
+  [<span class="ruby-identifier">arr</span>, <span class="ruby-identifier">handle_opts_hash</span>(<span class="ruby-identifier">hash</span>)]
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- handle_options-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- handle_options-method -->
+
+      
+        <div id="handle_opts_hash-method" class="method-detail ">
+          <a name="method-i-handle_opts_hash"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">handle_opts_hash</span><span
+              class="method-args">(opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="handle_opts_hash-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_opts_hash</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">res</span> = []
+
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:prop</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">PROPS</span>
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:prop</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:prop</span>] &amp; <span class="ruby-constant">PROPS</span>
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">make_qs</span>(<span class="ruby-string">&quot;prop&quot;</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:prop</span>])
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:revids</span>]
+    <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">make_qs</span>(<span class="ruby-string">&quot;revids&quot;</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:revids</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:rvprop</span>] 
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:rvprop</span>] = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:rvprop</span>] &amp; <span class="ruby-constant">RVPROPS</span>
+    <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">make_qs</span>(<span class="ruby-string">&quot;rvprop&quot;</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:rvprop</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- handle_opts_hash-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- handle_opts_hash-method -->
+
+      
+        <div id="make_qs-method" class="method-detail ">
+          <a name="method-i-make_qs"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">make_qs</span><span
+              class="method-args">(name, collection)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="make_qs-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_qs</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">collection</span>)
+  <span class="ruby-node">&quot;#{name}=#{CGI.escape(collection.join('|'))}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- make_qs-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- make_qs-method -->
+
+      
+        <div id="make_url-method" class="method-detail ">
+          <a name="method-i-make_url"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">make_url</span><span
+              class="method-args">(*opts)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="make_url-source">
+<pre>
+<span class="ruby-comment"># File lib/mediawiki.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">make_url</span>(*<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@url</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;?&quot;</span> <span class="ruby-operator">+</span> ([<span class="ruby-string">&quot;action=query&quot;</span>, <span class="ruby-string">&quot;format=xml&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">opts</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">'&amp;'</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- make_url-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- make_url-method -->
+
+      
+      </div><!-- protected-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
