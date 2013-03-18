@@ -146,9 +146,8 @@ class MediaWiki
   end
 
   def handle_options(opts)
-    arr = opts.delete_if{|o| o.is_a? Hash}
-    hash = (opts - arr).first
-    [arr, handle_opts_hash(hash)]
+    hashes, arr = opts.partition{|o| o.is_a? Hash}
+    [arr, handle_opts_hash(hashes.first)]
   end
 
   def handle_opts_hash(opts)
