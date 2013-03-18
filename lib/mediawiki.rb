@@ -27,7 +27,7 @@
 #
 # Check out the source on github http://github.com/schleyfox/wikipedia-api
 
-['hpricot', 'cgi', 'open-uri', 'wikipedia/version'].each {|f| require f}
+['json', 'cgi', 'open-uri', 'wikipedia/version'].each {|f| require f}
 
 # The MediaWiki class allows one to interface with the MediaWiki API.
 # Everything about it is incomplete and I promise that it will eat your kids
@@ -95,11 +95,11 @@ class MediaWiki
 
   class MediaWikiBase
   
-    attr_accessor :xml, :pages
+    attr_accessor :json, :pages
   
     def initialize(url)
-      @xml = get_xml(url)
-      @pages = (@xml/:api/:query/:pages/:page).collect{|p| Page.new(p) }
+      @json = get_json(url)
+      @pages = (@json['query']['pages']).collect{|id,p| Page.new(p) }
     end
   
     
@@ -109,14 +109,14 @@ class MediaWiki
       attr_accessor :title, :pageid
   
       def initialize(page)
-        @title = page.attributes['title']
-        @pageid = page.attributes['pageid']
-        @links = (page/:links/:pl).collect{|pl| pl.attributes['title']}
-        @langlinks = (page/:langlinks/:ll).collect{|ll| ll.attributes['lang']}
-        @images = (page/:images/:im).collect{|im| im.attributes['title']}
-        @templates = (page/:templates/:tl).collect{|tl| tl.attributes['title']}
-        @extlinks = (page/:extlinks/:el).collect{|el| el.inner_html}
-        @revisions = (page/:revisions/:rev).collect{|rev| Revision.new(rev)}
+        @title = page['title']
+        @pageid = page['pageid']
+        @links = page['links'].collect{|pl| pl['title']}
+        @langlinks = page['langlinks'].collect{|ll| ll['lang']}
+        @images = page['images'].collect{|im| im['title']}
+        @templates = page['templates'].collect{|tl| tl['title']}
+        @extlinks = page['extlinks'].collect{|el| el['*']}
+        @revisions = page['revisions'].collect{|rev| Revision.new(rev)}
       end
     end
   
@@ -125,24 +125,24 @@ class MediaWiki
       attr_accessor :revid
   
       def initialize(rev)
-        @revid = rev.attributes['revid']
-        @user = rev.attributes['user']
-        @timestamp = Time.parse(rev.attributes['timestamp'])
-        @comment = rev.attributes['comment']
-        @content = rev.inner_html
+        @revid = rev['revid']
+        @user = rev['user']
+        @timestamp = Time.parse(rev['timestamp'])
+        @comment = rev['comment']
+        @content = rev['*']
       end
     end
   
     protected
-    def get_xml(url)
-      Hpricot.XML(open(url, 'User-Agent' => 'Ruby/wikipedia-api-gem-bxt'))
+    def get_json(url)
+      JSON(open(url, 'User-Agent' => 'Ruby/wikipedia-api-gem-bxt'){|f| f.read})
     end
   end
 
 
   protected
   def make_url(*opts)
-    @url + "?" + (["action=query", "format=xml"] + opts).join('&')
+    @url + "?" + (["action=query", "format=json"] + opts).join('&')
   end
 
   def handle_options(opts)
