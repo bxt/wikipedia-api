@@ -27,8 +27,7 @@
 #
 # Check out the source on github http://github.com/schleyfox/wikipedia-api
 
-['hpricot', 'cgi', 'open-uri'].each {|f| require f}
-
+['hpricot', 'cgi', 'open-uri', 'wikipedia/version'].each {|f| require f}
 
 # The MediaWiki class allows one to interface with the MediaWiki API.
 # Everything about it is incomplete and I promise that it will eat your kids
