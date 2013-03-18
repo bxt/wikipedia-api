@@ -83,7 +83,7 @@ class MediaWiki
 
   # Same as find_by_titles but returns a single page
   def find_by_title(*opts)
-    find_by_titles(opts).pages.first
+    find_by_titles(*opts).pages.first
   end
 
   # find the articles identified by the Array titles
