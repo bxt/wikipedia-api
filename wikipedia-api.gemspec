@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
     s.homepage = 'http://github.com/bxt/wikipedia-api/'
     s.has_rdoc = true
     s.files = ['README.md', 'README.rdoc', 'LICENSE', 'lib/mediawiki.rb', 'lib/wikipedia.rb',
-      'lib/wikipedia/version.rb', 'test/sample.xml', 'test/test.rb']
+      'lib/wikipedia/version.rb', 'test/sample.json', 'test/test.rb']
     s.test_files    = s.files.grep(%r{^(test|spec|features)/})
     s.require_paths = ["lib"]
     s.required_ruby_version = '>= 1.9.3' # json
