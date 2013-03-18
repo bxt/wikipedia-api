@@ -16,4 +16,7 @@ Gem::Specification.new do |s|
       'lib/wikipedia/version.rb', 'test/sample.xml', 'test/test.rb']
     s.test_files    = s.files.grep(%r{^(test|spec|features)/})
     s.require_paths = ["lib"]
+    s.add_dependency "hpricot"
+    s.add_development_dependency "rake"
+    s.add_development_dependency "shoulda"
 end
