@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
     s.summary = 'Wikipedia-API is a ruby wrapper for the MediaWiki API'
     s.homepage = 'http://github.com/bxt/wikipedia-api/'
     s.has_rdoc = true
-    s.files = ['README', 'LICENSE', 'lib/mediawiki.rb', 'lib/wikipedia.rb',
-      'test/sample.xml', 'test/test.rb']
+    s.files = ['README.md', 'README.rdoc', 'LICENSE', 'lib/mediawiki.rb', 'lib/wikipedia.rb',
+      'lib/wikipedia/version.rb', 'test/sample.xml', 'test/test.rb']
+    s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+    s.require_paths = ["lib"]
 end
