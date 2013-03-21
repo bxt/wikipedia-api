@@ -19,6 +19,7 @@ class MediaWikiTest < Test::Unit::TestCase
   context "MediaWiki interface" do
     should("find article by id"){ assert @mw.find(10) }
     should("find article by title"){ assert @mw.find_by_title("Foobar") }
+    should("have langlinks for the page"){ assert @mw.find_by_title("Foobar").langlinks.is_a? Hash }
     should("find articles by ids"){ assert @mw.find_by_pageids(10,11) }
     should("find articles by titles"){ assert @mw.find_by_titles("Foo","Bar") }
   end
