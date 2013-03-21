@@ -99,7 +99,7 @@ class MediaWiki
   
     def initialize(url)
       @json = get_json(url)
-      @pages = (@json['query']['pages']).collect{|id,p| Page.new(p) }
+      @pages = (@json['query']['pages']).reject{|id,p| p['missing'] }.collect{|id,p| Page.new(p)  }
     end
   
     
