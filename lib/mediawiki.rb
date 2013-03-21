@@ -111,12 +111,12 @@ class MediaWiki
       def initialize(page)
         @title = page['title']
         @pageid = page['pageid']
-        @links = page['links'].collect{|pl| pl['title']}
-        @langlinks = page['langlinks'].inject({}){|h,ll| h[ll["lang"].to_sym]=ll["*"]; h}
-        @images = page['images'].collect{|im| im['title']}
-        @templates = page['templates'].collect{|tl| tl['title']}
-        @extlinks = page['extlinks'].collect{|el| el['*']}
-        @revisions = page['revisions'].collect{|rev| Revision.new(rev)}
+        @links = page['links'] && page['links'].collect{|pl| pl['title']}
+        @langlinks = page['langlinks'] && page['langlinks'].inject({}){|h,ll| h[ll["lang"].to_sym]=ll["*"]; h}
+        @images = page['images'] && page['images'].collect{|im| im['title']}
+        @templates = page['templates'] && page['templates'].collect{|tl| tl['title']}
+        @extlinks = page['extlinks'] && page['extlinks'].collect{|el| el['*']}
+        @revisions = page['revisions'] && page['revisions'].collect{|rev| Revision.new(rev)}
       end
     end
   
