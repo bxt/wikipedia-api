@@ -153,14 +153,12 @@ class MediaWiki
   def handle_opts_hash(opts)
     opts ||= {}
     res = []
-
-    opts[:prop] ||= PROPS
-    opts[:prop] = opts[:prop] & PROPS
-    res << make_qs("prop", opts[:prop])
-
-    opts[:rvprop] ||= RVPROPS
-    opts[:rvprop] = opts[:rvprop] & RVPROPS
-    res << make_qs("rvprop", opts[:rvprop])
+    
+    {prop: PROPS, rvprop: RVPROPS}.each do |prop, ops|
+      opts[prop] ||= ops
+      opts[prop] = opts[prop] & ops
+      res << make_qs(prop, opts[prop])
+    end
     
     opts.reject{|k,v| [:prop,:rvprop].include?k }.each do |k,v|
       res << make_qs(k, (v.respond_to?(:join) ? v : [v]))
