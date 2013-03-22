@@ -17,7 +17,7 @@ end
 
 desc "Open an irb session preloaded with wikipedia library"
 task :console do
-  sh "irb -rubygems -I lib -r ./lib/wikipedia.rb"
+  sh "irb -rubygems -I lib -r ./lib/wikipedia.rb -r pp"
 end
 
 task 'test/sample.json' do
