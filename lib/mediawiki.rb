@@ -157,14 +157,14 @@ class MediaWiki
     opts[:prop] ||= PROPS
     opts[:prop] = opts[:prop] & PROPS
     res << make_qs("prop", opts[:prop])
-    
-    if opts[:revids]
-      res << make_qs("revids", opts[:revids])
-    end
 
     opts[:rvprop] ||= RVPROPS
     opts[:rvprop] = opts[:rvprop] & RVPROPS
     res << make_qs("rvprop", opts[:rvprop])
+    
+    opts.reject{|k,v| [:prop,:rvprop].include?k }.each do |k,v|
+      res << make_qs(k, (v.respond_to?(:join) ? v : [v]))
+    end
 
     res
   end
